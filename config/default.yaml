@@ -1,0 +1,106 @@
+# SAGE++ Trading Bot Configuration
+
+# Trading Configuration
+trading:
+  primary_pair: "SOL/USDT"
+  initial_capital: 10000.0
+  
+  # Capital allocation
+  grid_allocation: 0.85      # 85% for grid trading
+  reserve_allocation: 0.10   # 10% reserve
+  testing_allocation: 0.05   # 5% for testing new strategies
+  
+  # Grid parameters
+  base_levels: 40
+  min_spacing_pct: 0.0015    # 0.15% minimum spacing
+  max_spacing_pct: 0.01      # 1.0% maximum spacing
+  min_profit_per_grid: 0.003 # 0.3% minimum profit per grid level
+  
+  # Fee optimization
+  use_bnb_discount: true
+  maker_only: true
+  target_fee_rate: 0.00075   # 0.075% target fee rate
+
+# Exchange Configuration
+exchange:
+  name: "binance"
+  
+  # Rate limits
+  max_requests_per_minute: 1200
+  max_orders_per_minute: 100
+  
+  # Connection settings
+  timeout: 30
+  retry_attempts: 3
+  retry_delay: 1.0
+  
+  # Security
+  ip_whitelist_only: true
+  testnet: true              # Use testnet by default for safety
+
+# Risk Management Configuration
+risk:
+  # Position limits
+  max_grid_exposure_pct: 0.40    # Maximum 40% of capital in grid
+  max_single_level_pct: 0.02     # Maximum 2% per grid level
+  max_directional_bias_pct: 0.60 # Maximum 60% directional bias
+  max_correlated_exposure_pct: 0.60
+  
+  # Stop loss triggers
+  soft_stop_trigger_pct: 0.05     # 5% outside range
+  medium_stop_trigger_pct: 0.10   # 10% outside range  
+  hard_stop_trigger_pct: 0.15     # 15% outside range
+  emergency_stop_drawdown_pct: 0.20 # 20% total drawdown
+  
+  # Circuit breakers
+  max_consecutive_losses: 5
+  max_api_errors: 10
+  max_slippage_pct: 0.005    # 0.5% maximum slippage
+  
+  # Inventory management
+  target_base_pct: 0.50      # Target 50% base asset
+  target_quote_pct: 0.50     # Target 50% quote asset
+  rebalance_trigger_pct: 0.70 # Rebalance when ratio hits 70/30
+  rebalance_frequency_hours: 6
+
+# Database Configuration (use environment variables for credentials)
+database:
+  postgres_host: "localhost"
+  postgres_port: 5432
+  postgres_db: "sagepp"
+  postgres_user: "sagepp"
+  
+  redis_host: "localhost"
+  redis_port: 6379
+  redis_db: 0
+  
+  s3_region: "us-east-1"
+
+# Monitoring Configuration
+monitoring:
+  log_level: "INFO"
+  log_file: "logs/sagepp.log"
+  log_max_bytes: 10000000    # 10MB
+  log_backup_count: 5
+  
+  enable_prometheus: true
+  prometheus_port: 8000
+
+# Advanced Configuration
+advanced:
+  # Temporal advantage systems
+  enable_whale_detection: true
+  enable_correlation_prediction: true
+  enable_sentiment_velocity: true
+  enable_time_crystals: true
+  
+  # Meta-learning
+  enable_meta_learning: true
+  pattern_discovery_threshold: 50
+  confidence_calibration_samples: 30
+  
+  # Performance optimization
+  max_concurrent_requests: 10
+  order_batch_size: 5
+  data_compression: true
+  cache_ttl_seconds: 300

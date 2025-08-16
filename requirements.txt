@@ -1,0 +1,60 @@
+# SAGE++ Trading Bot Requirements
+
+# Core Dependencies  
+asyncio-mqtt>=0.11.1
+aiohttp>=3.8.5
+aiofiles>=23.2.1
+
+# Numerical & Data Analysis
+numpy>=1.24.3
+pandas>=2.0.3
+scipy>=1.11.1
+
+# Machine Learning & Statistics
+scikit-learn>=1.3.0
+hmmlearn>=0.3.0
+arch>=6.2.0
+
+# Exchange Connectivity
+ccxt>=4.0.77
+
+# Database & Storage
+psycopg2-binary==2.9.7
+asyncpg==0.28.0
+redis==4.6.0
+boto3==1.28.25
+
+# Configuration & Serialization
+PyYAML==6.0.1
+pydantic==2.1.1
+python-dotenv==1.0.0
+
+# Monitoring & Logging
+prometheus-client==0.17.1
+structlog==23.1.0
+
+# Telegram Bot (Alerts)
+python-telegram-bot==20.4
+
+# Email (Alerts)
+aiosmtplib==2.0.2
+
+# Utilities
+click==8.1.6
+tabulate==0.9.0
+colorama==0.4.6
+
+# Development & Testing
+pytest==7.4.0
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+black==23.7.0
+isort==5.12.0
+flake8==6.0.0
+mypy==1.5.1
+
+# Optional: Jupyter for analysis
+jupyter==1.0.0
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.15.0
